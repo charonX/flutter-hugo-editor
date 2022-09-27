@@ -9,4 +9,9 @@ class ListItem {
       : title = json["title"],
         time = json["time"],
         isDraft = json["isDraft"];
+
+  ListItem.fromData(List keys, List values)
+      : title = values[keys.indexOf("title")],
+        time = values[keys.indexOf("publishDate")],
+        isDraft = values[keys.indexOf("draft")] == "true";
 }

@@ -1,11 +1,13 @@
 import 'dart:io';
 
 class Hugo {
+  static Hugo get instance => Hugo();
   Future<Map<String, List>> getArticleList() async {
     const workingDirectory = "/Users/zhanglei/code/blog";
 
-    var processOut = await Process.run("hugo", ["list", "all"],
+    var processOut = await Process.run("/usr/local/bin/hugo", ["list", "all"],
         workingDirectory: workingDirectory);
+
     String list = processOut.stdout;
     String error = processOut.stderr;
 
